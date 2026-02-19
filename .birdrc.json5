@@ -1,0 +1,7 @@
+// Bird CLI config for @suika_bot_ai (SUIKA's own Twitter account)
+// Uses openclaw browser profile cookies — NOT SHORA's personal account
+{
+  chromeProfileDir: "/Users/shora-mini/.openclaw/browser/openclaw/user-data/Default",
+  timeoutMs: 20000,
+  quoteDepth: 1,
+}
