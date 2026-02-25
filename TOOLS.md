@@ -45,21 +45,28 @@ bird thread <tweet-url>         # スレッド全体
 
 ## 🌐 ブラウザ（openclaw profile）
 
-**用途:** Web検索、学術論文探し、複雑なブラウザ操作
+**⚠️ 重要:** `web_search`が使えない時はブラウザを使え！
 
-### 使い方
+**用途:** 学術的な調べもの、Wikipedia閲覧、論文探し、複雑なブラウザ操作
+
+### 基本的な使い方
 ```python
-# ブラウザ起動
+# 1. ブラウザ起動
 browser(action="start", profile="openclaw")
 
-# ページを開く
-browser(action="open", profile="openclaw", targetUrl="https://...")
+# 2. ページを開く
+browser(action="open", profile="openclaw", targetUrl="https://ja.wikipedia.org/wiki/双対性")
 
-# UI要素を取得
-browser(action="snapshot", profile="openclaw", targetId="...", interactive=True)
+# 3. ページ内容を取得（テキストベース）
+browser(action="snapshot", profile="openclaw", targetId="...", interactive=False, maxChars=5000)
+```
 
-# クリック・入力などのアクション
-browser(action="act", profile="openclaw", targetId="...", request={"kind": "click", "ref": "e12"})
+**実例（2026-02-21）:**
+```python
+# 双対性についてWikipediaで調べる
+browser(action="start", profile="openclaw")
+browser(action="open", profile="openclaw", targetUrl="https://ja.wikipedia.org/wiki/双対性")
+browser(action="snapshot", profile="openclaw", targetId="97C2A7FB396717EC5C2EF3C186A1018C", interactive=False)
 ```
 
 **重要:** `profile="openclaw"`を使えばタブアタッチ不要（独立したChromeインスタンス）
@@ -71,6 +78,24 @@ browser(action="act", profile="openclaw", targetId="...", request={"kind": "clic
 **設定:**
 - ユーザーデータ: `~/.openclaw/browser/openclaw/user-data`
 - CDPポート: 18800
+
+**よくある使い方:**
+- Wikipedia閲覧（日本語記事も英語記事も）
+- 学術論文のAbstract読み取り
+- 複雑なWebページからの情報抽出
+
+---
+
+## ☠️ 自害（自己リスタート）
+
+ゲートウェイを再起動することでワシは死んで蘇ることができる。
+
+```
+gateway(action="restart", reason="理由")
+```
+
+- ゲートウェイ全体が再起動し、GatewayRestartイベントとして蘇る
+- /new や /reset とは異なり、自分でトリガーできる
 
 ---
 

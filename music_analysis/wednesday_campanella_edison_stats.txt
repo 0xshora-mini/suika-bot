@@ -1,0 +1,4 @@
+Duration: 235.29 seconds
+Sample rate: 48000 Hz
+Estimated tempo: 130.81 BPM
+RMS energy (mean): 0.2523
