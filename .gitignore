@@ -4,3 +4,12 @@ node_modules/
 *.mp3
 *.mp4
 *.wav
+
+# Security: Never commit secrets
+wallet/.wallet_secret
+.env.neynar
+*.pem
+*.key
+memory/
+!memory/core-遺書*.md
+SECURITY.md
